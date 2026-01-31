@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanif's Learning Hub</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0a0a0f;
+    color: #e8e8ed;
+    padding: 40px 24px;
+    min-height: 100vh;
+  }
+  .container { max-width: 700px; margin: 0 auto; }
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle { font-size: 14px; color: #6b7280; margin-bottom: 36px; }
+  .card {
+    background: #111118;
+    border: 1px solid #1e1e2e;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 16px;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .card:hover { border-color: #3b82f6; transform: translateY(-2px); }
+  .card h2 { font-size: 18px; font-weight: 700; color: #e8e8ed; margin-bottom: 6px; }
+  .card p { font-size: 13px; color: #9ca3af; line-height: 1.5; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #1a1a2e;
+    color: #60a5fa;
+    margin-top: 10px;
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🧠 Hanif's Learning Hub</h1>
+  <p class="subtitle">Visual explainers for the AI & semiconductor value chain</p>
+  
+  <a class="card" href="hbm-memory-layer.html">
+    <h2>🧠 HBM & the Memory Layer</h2>
+    <p>What HBM is, why AI needs it, the consumer RAM tradeoff, market share, and key numbers.</p>
+    <span class="tag">Layer 4</span><span class="tag">HBM</span><span class="tag">DRAM</span>
+  </a>
+  
+  <a class="card" href="cowos-packaging.html">
+    <h2>🔧 CoWoS & Advanced Packaging</h2>
+    <p>The hidden bottleneck between making chips and shipping them. Cross-section diagrams, TSMC's monopoly, and the capacity gap.</p>
+    <span class="tag">Packaging</span><span class="tag">TSMC</span><span class="tag">Bottleneck</span>
+  </a>
+</div>
+</body>
+</html>
