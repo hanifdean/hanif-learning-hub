@@ -24,19 +24,70 @@
     -webkit-text-fill-color: transparent;
   }
   .subtitle { font-size: 14px; color: #6b7280; margin-bottom: 36px; }
+  
+  /* Category styles */
+  .category {
+    margin-bottom: 36px;
+  }
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .category-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .category-count {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #1a1a2e;
+    color: #6b7280;
+  }
+  .category-toggle {
+    font-size: 12px;
+    color: #4b5563;
+    margin-left: auto;
+    transition: transform 0.2s;
+  }
+  .category-toggle.collapsed { transform: rotate(-90deg); }
+  .category-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .category-cards.collapsed {
+    max-height: 0 !important;
+  }
+  
   .card {
     background: #111118;
     border: 1px solid #1e1e2e;
     border-radius: 14px;
-    padding: 24px;
-    margin-bottom: 16px;
+    padding: 20px;
     text-decoration: none;
     display: block;
     transition: border-color 0.2s, transform 0.2s;
   }
   .card:hover { border-color: #3b82f6; transform: translateY(-2px); }
-  .card h2 { font-size: 18px; font-weight: 700; color: #e8e8ed; margin-bottom: 6px; }
+  .card h3 { font-size: 15px; font-weight: 700; color: #e8e8ed; margin-bottom: 4px; }
   .card p { font-size: 13px; color: #9ca3af; line-height: 1.5; }
+  .card .layer-num {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
   .tag {
     display: inline-block;
     font-size: 10px;
@@ -45,91 +96,165 @@
     border-radius: 4px;
     background: #1a1a2e;
     color: #60a5fa;
-    margin-top: 10px;
-    margin-right: 6px;
+    margin-top: 8px;
+    margin-right: 4px;
   }
+  
+  .divider {
+    border-top: 1px solid #1e1e2e;
+    margin: 12px 0 0 0;
+  }
+  
+  .placeholder-card {
+    border-color: #2a1a3a;
+    cursor: default;
+    opacity: 0.5;
+  }
+  .placeholder-card:hover { border-color: #2a1a3a; transform: none; }
   
   @media (max-width: 600px) {
     body { padding: 20px 12px; }
     h1 { font-size: 22px; }
     .subtitle { font-size: 13px; margin-bottom: 24px; }
-    .card { padding: 20px 16px; min-height: 44px; }
-    .card h2 { font-size: 16px; }
-    .card p { font-size: 14px; }
-    .tag { font-size: 11px; padding: 4px 10px; min-height: 28px; line-height: 20px; }
+    .card { padding: 16px 14px; }
+    .card h3 { font-size: 14px; }
+    .card p { font-size: 13px; }
+    .tag { font-size: 11px; padding: 4px 10px; }
+    .category-title { font-size: 15px; }
   }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>🧠 Hanif's Learning Hub</h1>
+  
+  <h1>🧠 Learning Hub</h1>
   <p class="subtitle">Visual explainers & study guides — built by Robin 🐱</p>
-  
-  <h2 style="font-size:16px;font-weight:700;color:#60a5fa;margin-bottom:14px;margin-top:8px;">📡 Hanif — AI & Semiconductor Value Chain</h2>
-  
-  <a class="card" href="layer1-raw-materials.html">
-    <h2>⛏️ Layer 1: Raw Materials & Equipment</h2>
-    <p>From sand to silicon wafers, ASML's EUV monopoly, rare earth geopolitics, and the foundation everything is built on.</p>
-    <span class="tag">Layer 1</span><span class="tag">ASML</span><span class="tag">Silicon</span><span class="tag">Rare Earths</span>
-  </a>
-  
-  <a class="card" href="layer2-chip-design.html">
-    <h2>🏗️ Layer 2: Chip Design</h2>
-    <p>The fabless revolution, Nvidia's CUDA moat, AMD's challenge, custom silicon from hyperscalers, and the design ecosystem.</p>
-    <span class="tag">Layer 2</span><span class="tag">Nvidia</span><span class="tag">Fabless</span>
-  </a>
-  
-  <a class="card" href="layer3-foundries.html">
-    <h2>🏭 Layer 3: Foundries & Fabrication</h2>
-    <p>TSMC's 92% dominance, how chips are made, process nodes explained, Samsung & Intel's struggles, and the CHIPS Act reshoring push.</p>
-    <span class="tag">Layer 3</span><span class="tag">TSMC</span><span class="tag">Fabrication</span><span class="tag">CHIPS Act</span>
-  </a>
-  
-  <a class="card" href="hbm-memory-layer.html">
-    <h2>🧠 HBM & the Memory Layer</h2>
-    <p>What HBM is, why AI needs it, the consumer RAM tradeoff, market share, and key numbers.</p>
-    <span class="tag">Layer 4</span><span class="tag">HBM</span><span class="tag">DRAM</span>
-  </a>
-  
-  <a class="card" href="layer6-energy-datacenters.html">
-    <h2>⚡ Layer 6: Energy & Data Centers</h2>
-    <p>The power crisis behind AI: nuclear renaissance, data center geography, the transformer bottleneck, and why energy determines AI's future.</p>
-    <span class="tag">Layer 6</span><span class="tag">Nuclear</span><span class="tag">Data Centers</span><span class="tag">Power</span>
-  </a>
-  
-  <a class="card" href="layer5-systems-networking.html">
-    <h2>🖥️ Layer 5: Systems, Servers & Networking</h2>
-    <p>Assembling GPUs, HBM, and networking into AI supercomputers. NVLink, InfiniBand, liquid cooling, and the networking bottleneck.</p>
-    <span class="tag">Layer 5</span><span class="tag">DGX</span><span class="tag">InfiniBand</span><span class="tag">Networking</span>
-  </a>
-  
-  <a class="card" href="cowos-packaging.html">
-    <h2>🔧 CoWoS & Advanced Packaging</h2>
-    <p>The hidden bottleneck between making chips and shipping them. Cross-section diagrams, TSMC's monopoly, and the capacity gap.</p>
-    <span class="tag">Packaging</span><span class="tag">TSMC</span><span class="tag">Bottleneck</span>
-  </a>
-  
-  <a class="card" href="layer7-cloud-compute.html">
-    <h2>☁️ Layer 7: Cloud & Compute Providers</h2>
-    <p>The hyperscaler Big 3, AI-native cloud providers, sovereign AI, GPU rental economics, and the $230B+ capex arms race.</p>
-    <span class="tag">Layer 7</span><span class="tag">AWS</span><span class="tag">CoreWeave</span><span class="tag">Cloud</span>
-  </a>
-  
-  <a class="card" href="layer8-ai-labs.html">
-    <h2>🧪 Layer 8: AI Labs & Software</h2>
-    <p>OpenAI, Anthropic, Google DeepMind, Meta AI, xAI — training vs inference, key breakthroughs, and the open vs closed debate.</p>
-    <span class="tag">Layer 8</span><span class="tag">OpenAI</span><span class="tag">Anthropic</span><span class="tag">Frontier AI</span>
-  </a>
 
-  <div style="border-top:1px solid #1e1e2e;margin:32px 0 24px 0;"></div>
-  
-  <h2 style="font-size:16px;font-weight:700;color:#f0abfc;margin-bottom:14px;">📚 Sasya — Study Guides & Concepts</h2>
-  
-  <div class="card" style="border-color:#2a1a3a;cursor:default;opacity:0.6;">
-    <h2>Coming soon</h2>
-    <p>Study guides, concept maps, and visual explainers for Sasya's coursework will appear here.</p>
-    <span class="tag" style="color:#f0abfc;background:#2a1a2e;">LSE</span><span class="tag" style="color:#f0abfc;background:#2a1a2e;">Social Innovation</span>
+  <!-- ==================== CATEGORY: AI & SEMICONDUCTOR VALUE CHAIN ==================== -->
+  <div class="category">
+    <div class="category-header" onclick="toggleCategory(this)">
+      <span class="category-title" style="color:#60a5fa;">📡 AI & Semiconductor Value Chain</span>
+      <span class="category-count">9 pages</span>
+      <span class="category-toggle">▼</span>
+    </div>
+    <div class="category-cards">
+      
+      <a class="card" href="layer1-raw-materials.html">
+        <h3><span class="layer-num" style="background:#1a2a1a;color:#22c55e;">L1</span> Raw Materials & Equipment</h3>
+        <p>Sand to silicon wafers, ASML's EUV monopoly, rare earth geopolitics.</p>
+        <span class="tag">ASML</span><span class="tag">Silicon</span><span class="tag">Rare Earths</span>
+      </a>
+      
+      <a class="card" href="layer2-chip-design.html">
+        <h3><span class="layer-num" style="background:#1a1a2e;color:#60a5fa;">L2</span> Chip Design</h3>
+        <p>Fabless revolution, Nvidia's CUDA moat, AMD, custom silicon, EDA tools.</p>
+        <span class="tag">Nvidia</span><span class="tag">AMD</span><span class="tag">Fabless</span>
+      </a>
+      
+      <a class="card" href="layer3-foundries.html">
+        <h3><span class="layer-num" style="background:#2a1a1a;color:#f87171;">L3</span> Foundries & Fabrication</h3>
+        <p>TSMC's 92% dominance, process nodes, Samsung & Intel, CHIPS Act reshoring.</p>
+        <span class="tag">TSMC</span><span class="tag">Fabrication</span><span class="tag">CHIPS Act</span>
+      </a>
+      
+      <a class="card" href="hbm-memory-layer.html">
+        <h3><span class="layer-num" style="background:#1a1a3a;color:#818cf8;">L4</span> HBM & the Memory Layer</h3>
+        <p>What HBM is, the consumer RAM tradeoff, SK Hynix/Micron/Samsung market share.</p>
+        <span class="tag">HBM</span><span class="tag">DRAM</span><span class="tag">Memory</span>
+      </a>
+      
+      <a class="card" href="cowos-packaging.html">
+        <h3><span class="layer-num" style="background:#2a2a1a;color:#fbbf24;">L4.5</span> CoWoS & Advanced Packaging</h3>
+        <p>The hidden bottleneck — how GPU + HBM get married on a silicon interposer.</p>
+        <span class="tag">CoWoS</span><span class="tag">TSMC</span><span class="tag">Packaging</span>
+      </a>
+      
+      <a class="card" href="layer5-systems-networking.html">
+        <h3><span class="layer-num" style="background:#1a2a2a;color:#2dd4bf;">L5</span> Systems, Servers & Networking</h3>
+        <p>DGX racks, NVLink/InfiniBand hierarchy, liquid cooling, networking bottleneck.</p>
+        <span class="tag">DGX</span><span class="tag">InfiniBand</span><span class="tag">Networking</span>
+      </a>
+      
+      <a class="card" href="layer6-energy-datacenters.html">
+        <h3><span class="layer-num" style="background:#2a1a2a;color:#f0abfc;">L6</span> Energy & Data Centers</h3>
+        <p>Nuclear renaissance, Big Tech power deals, 33→176 GW demand, transformer bottleneck.</p>
+        <span class="tag">Nuclear</span><span class="tag">Power</span><span class="tag">Data Centers</span>
+      </a>
+      
+      <a class="card" href="layer7-cloud-compute.html">
+        <h3><span class="layer-num" style="background:#1a2a1a;color:#86efac;">L7</span> Cloud & Compute Providers</h3>
+        <p>Hyperscaler Big 3, CoreWeave, sovereign AI, GPU rental economics, capex arms race.</p>
+        <span class="tag">AWS</span><span class="tag">CoreWeave</span><span class="tag">Sovereign AI</span>
+      </a>
+      
+      <a class="card" href="layer8-ai-labs.html">
+        <h3><span class="layer-num" style="background:#1a1a2e;color:#60a5fa;">L8</span> AI Labs & Software</h3>
+        <p>OpenAI, Anthropic, DeepMind, Meta — training vs inference, breakthroughs, open vs closed.</p>
+        <span class="tag">OpenAI</span><span class="tag">Anthropic</span><span class="tag">Frontier AI</span>
+      </a>
+      
+    </div>
   </div>
+
+  <!-- ==================== CATEGORY: MARKETS & MACRO ==================== -->
+  <div class="category">
+    <div class="category-header" onclick="toggleCategory(this)">
+      <span class="category-title" style="color:#fbbf24;">💰 Markets & Macro</span>
+      <span class="category-count">coming soon</span>
+      <span class="category-toggle">▼</span>
+    </div>
+    <div class="category-cards">
+      <div class="card placeholder-card">
+        <h3>Coming soon</h3>
+        <p>Gold/silver/metals & the dollar, sovereign trade, macro investing concepts.</p>
+        <span class="tag" style="color:#fbbf24;background:#2a2a1a;">Gold</span><span class="tag" style="color:#fbbf24;background:#2a2a1a;">Silver</span><span class="tag" style="color:#fbbf24;background:#2a2a1a;">Macro</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CATEGORY: AI CONCEPTS & RESEARCH ==================== -->
+  <div class="category">
+    <div class="category-header" onclick="toggleCategory(this)">
+      <span class="category-title" style="color:#2dd4bf;">🔬 AI Concepts & Research</span>
+      <span class="category-count">coming soon</span>
+      <span class="category-toggle">▼</span>
+    </div>
+    <div class="category-cards">
+      <div class="card placeholder-card">
+        <h3>Coming soon</h3>
+        <p>LLM architecture, transformers explained, scaling laws, reasoning models, interpretability.</p>
+        <span class="tag" style="color:#2dd4bf;background:#1a2a2a;">LLMs</span><span class="tag" style="color:#2dd4bf;background:#1a2a2a;">Research</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ==================== SASYA SECTION ==================== -->
+  <div class="category" style="margin-top:24px;">
+    <div class="category-header" onclick="toggleCategory(this)">
+      <span class="category-title" style="color:#f0abfc;">📚 Sasya — Study Guides</span>
+      <span class="category-count">coming soon</span>
+      <span class="category-toggle">▼</span>
+    </div>
+    <div class="category-cards">
+      <div class="card placeholder-card" style="border-color:#2a1a3a;">
+        <h3>Coming soon</h3>
+        <p>Study guides, concept maps, and visual explainers for Sasya's coursework.</p>
+        <span class="tag" style="color:#f0abfc;background:#2a1a2e;">LSE</span><span class="tag" style="color:#f0abfc;background:#2a1a2e;">Social Innovation</span>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<script>
+function toggleCategory(header) {
+  const cards = header.nextElementSibling;
+  const toggle = header.querySelector('.category-toggle');
+  cards.classList.toggle('collapsed');
+  toggle.classList.toggle('collapsed');
+}
+</script>
 </body>
 </html>
