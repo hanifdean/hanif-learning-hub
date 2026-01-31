@@ -768,18 +768,137 @@
     margin-top: 8px;
   }
   
-  @media (max-width: 700px) {
-    .evo-grid { grid-template-columns: 1fr; }
-    .comp-grid { grid-template-columns: 1fr; }
-    .key-numbers { grid-template-columns: 1fr; }
-    .flow-row { min-width: auto; flex-wrap: wrap; justify-content: center; }
-    .flow-node { min-width: 100px; }
-    .cs-substrate, .cs-interposer { width: 100%; }
-    .cs-top-row { flex-wrap: wrap; }
-    .cap-chart { gap: 16px; }
-    .cap-bar { width: 44px; }
-    body { padding: 20px 16px; }
-    .cross-section { overflow-x: auto; }
+  /* === MOBILE RESPONSIVE === */
+  @media (max-width: 600px) {
+    body { padding: 20px 12px; font-size: 15px; }
+    
+    h1 { font-size: 22px; }
+    .subtitle { font-size: 13px; margin-bottom: 24px; }
+    .section-title { font-size: 16px; }
+    
+    /* Big picture flow — stack vertically */
+    .big-picture { padding: 20px 14px; overflow-x: visible; }
+    .flow-row {
+      min-width: auto;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    .flow-node {
+      min-width: auto;
+      width: 100%;
+      padding: 12px 14px;
+    }
+    .flow-node .name { font-size: 14px; }
+    .flow-arrow {
+      text-align: center;
+      padding: 4px 0;
+      font-size: 16px;
+      transform: rotate(90deg);
+    }
+    .merge-note { font-size: 11px; line-height: 1.5; }
+    
+    /* Anatomy cards */
+    .anatomy-card { padding: 20px 14px; }
+    .anatomy-card h3 { font-size: 15px; }
+    
+    /* Cross-section diagram — scale to fit */
+    .cross-section { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+    .cs-substrate { width: 100%; min-width: 340px; height: 34px; font-size: 10px; }
+    .cs-interposer { width: 100%; min-width: 320px; height: 30px; font-size: 10px; }
+    .cs-top-row {
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .cs-gpu { width: 100px; height: 50px; font-size: 11px; }
+    .cs-hbm-die { width: 34px; height: 6px; }
+    .cs-hbm-label { font-size: 8px; }
+    .cs-legend { gap: 10px; }
+    .cs-legend-item { font-size: 10px; }
+    
+    /* Supply chain flow — stack vertically */
+    .supply-flow {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    .sf-node {
+      max-width: none;
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+    .sf-arrow {
+      text-align: center;
+      padding: 4px 0;
+      transform: rotate(90deg);
+    }
+    
+    /* Funnel — scale down */
+    .funnel-inputs {
+      flex-direction: column;
+      gap: 12px;
+      align-items: stretch;
+    }
+    .funnel-input-box { min-width: auto; width: 100%; padding: 12px 16px; }
+    .funnel-input-box .fi-num { font-size: 18px; }
+    .funnel-narrow-box { padding: 14px 16px; }
+    .funnel-output-box { width: 100%; }
+    .funnel-output-box .fo-num { font-size: 18px; }
+    
+    /* Evolution grid — single column */
+    .evo-grid { grid-template-columns: 1fr; gap: 14px; }
+    .evo-card { padding: 18px 16px; }
+    .evo-card .evo-name { font-size: 15px; }
+    .evo-card .evo-desc { font-size: 13px; }
+    .evo-card .evo-detail { font-size: 12px; }
+    
+    /* Competitive grid — single column */
+    .comp-grid { grid-template-columns: 1fr; gap: 14px; }
+    .comp-card { padding: 16px; }
+    .comp-card .comp-desc { font-size: 13px; }
+    
+    /* Table — horizontal scroll */
+    .gen-table { font-size: 12px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .gen-table th { padding: 8px 10px; font-size: 10px; white-space: nowrap; }
+    .gen-table td { padding: 8px 10px; white-space: nowrap; }
+    
+    /* Market bars */
+    .bar-label { width: 70px; font-size: 12px; }
+    .bar-track { height: 36px; }
+    .bar-fill { font-size: 11px; padding-left: 6px; min-height: 44px; }
+    
+    /* Key numbers — single column */
+    .key-numbers { grid-template-columns: 1fr; gap: 12px; }
+    .key-num { padding: 16px; }
+    .key-num .num { font-size: 24px; }
+    .key-num .desc { font-size: 12px; }
+    
+    /* Capacity chart — scale bars */
+    .cap-chart { gap: 8px; height: auto; flex-wrap: wrap; justify-content: center; }
+    .cap-bar-group { margin-left: 0 !important; }
+    .cap-bar { width: 40px; font-size: 10px; padding-top: 6px; }
+    .cap-year { font-size: 11px; }
+    .cap-demand-note { font-size: 11px; line-height: 1.5; }
+    
+    /* Worth knowing */
+    .worth-knowing { padding: 20px 16px; }
+    .worth-knowing li { font-size: 14px; line-height: 1.7; padding: 8px 0; }
+    
+    /* General text readability */
+    p { font-size: 14px; }
+  }
+  
+  /* Small phones */
+  @media (max-width: 360px) {
+    body { padding: 16px 8px; }
+    .big-picture { padding: 16px 10px; }
+    .anatomy-card { padding: 16px 10px; }
+    .cs-gpu { width: 80px; height: 40px; font-size: 10px; }
+    .cs-hbm-die { width: 28px; height: 5px; }
+    .cap-bar { width: 32px; font-size: 9px; }
+    .key-num .num { font-size: 22px; }
   }
 </style>
 </head>

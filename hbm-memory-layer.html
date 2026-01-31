@@ -511,12 +511,123 @@
   .worth-knowing li:last-child { border-bottom: none; }
   .worth-knowing li strong { color: #e8e8ed; }
   
-  @media (max-width: 700px) {
-    .hbm-anatomy { grid-template-columns: 1fr; }
-    .key-numbers { grid-template-columns: 1fr; }
-    .flow-row { min-width: auto; flex-wrap: wrap; justify-content: center; }
-    .flow-node { min-width: 100px; }
-    body { padding: 20px 16px; }
+  /* === MOBILE RESPONSIVE === */
+  @media (max-width: 600px) {
+    body { padding: 20px 12px; font-size: 15px; }
+    
+    h1 { font-size: 22px; }
+    .subtitle { font-size: 13px; margin-bottom: 24px; }
+    .section-title { font-size: 16px; }
+    
+    /* Big picture flow — stack vertically */
+    .big-picture { padding: 20px 14px; overflow-x: visible; }
+    .flow-row {
+      min-width: auto;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    .flow-node {
+      min-width: auto;
+      width: 100%;
+      padding: 12px 14px;
+    }
+    .flow-node .name { font-size: 14px; }
+    .flow-arrow {
+      text-align: center;
+      padding: 4px 0;
+      font-size: 16px;
+      transform: rotate(90deg);
+    }
+    
+    /* Anatomy grid — single column */
+    .hbm-anatomy { grid-template-columns: 1fr; gap: 16px; }
+    .anatomy-card { padding: 20px 16px; }
+    .anatomy-card h3 { font-size: 15px; }
+    
+    /* HBM stack visual — scale down */
+    .hbm-die { width: 140px; height: 22px; font-size: 9px; }
+    .hbm-die.interposer { width: 200px; height: 26px; }
+    .hbm-die.gpu { width: 110px; height: 40px; margin-left: -125px; font-size: 10px; }
+    
+    /* CoWoS layout — scale and wrap */
+    .cowos-layout { gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .cowos-base { width: 100%; max-width: 320px; }
+    .gpu-die { width: 70px; height: 45px; font-size: 10px; }
+    .hbm-mini-die { width: 30px; }
+    
+    /* Bandwidth comparison boxes */
+    .anatomy-card div[style*="display:flex"][style*="gap:24px"] {
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    /* Tradeoff section */
+    .tradeoff { padding: 20px 14px; }
+    .wafer-split { flex-direction: column; height: auto; }
+    .wafer-side { padding: 14px; }
+    .wafer-side .side-margin { font-size: 18px; }
+    .vs-divider {
+      width: 100%;
+      height: 32px;
+    }
+    
+    /* Consequence chain — stack vertically */
+    .consequence-chain {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    .consequence-node {
+      max-width: none;
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+    .c-arrow {
+      text-align: center;
+      padding: 4px 0;
+      transform: rotate(90deg);
+    }
+    
+    /* Table — horizontal scroll */
+    .anatomy-card:has(.gen-table) { padding: 20px 0; }
+    .anatomy-card:has(.gen-table) > h3,
+    .anatomy-card:has(.gen-table) > p { padding: 0 16px; }
+    .gen-table { font-size: 12px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .gen-table th { padding: 8px 10px; font-size: 10px; white-space: nowrap; }
+    .gen-table td { padding: 8px 10px; white-space: nowrap; }
+    
+    /* Market bars */
+    .bar-label { width: 70px; font-size: 12px; }
+    .bar-track { height: 36px; }
+    .bar-fill { font-size: 11px; padding-left: 8px; min-height: 44px; }
+    
+    /* Key numbers — single column */
+    .key-numbers { grid-template-columns: 1fr; gap: 12px; }
+    .key-num { padding: 16px; }
+    .key-num .num { font-size: 24px; }
+    .key-num .desc { font-size: 12px; }
+    
+    /* Worth knowing */
+    .worth-knowing { padding: 20px 16px; }
+    .worth-knowing li { font-size: 14px; line-height: 1.7; padding: 8px 0; }
+    
+    /* General text readability */
+    p { font-size: 14px; }
+    .stack-label { font-size: 11px; }
+  }
+  
+  /* Small phones */
+  @media (max-width: 360px) {
+    body { padding: 16px 8px; }
+    .big-picture { padding: 16px 10px; }
+    .anatomy-card { padding: 16px 12px; }
+    .hbm-die { width: 120px; }
+    .hbm-die.interposer { width: 170px; }
+    .hbm-die.gpu { width: 95px; margin-left: -105px; }
+    .cowos-base { max-width: 280px; }
+    .key-num .num { font-size: 22px; }
   }
 </style>
 </head>
